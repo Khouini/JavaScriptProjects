@@ -1,0 +1,54 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-danger bg-gradient d-flex align-items-center justify-content-center">
+    <div class="container text-center">
+        <div class="row border border-danger border-4 rounded-3">
+            <div class="p-1 col-5 col-sm-5 col-md-5 col-lg-5 ">
+                <div id="p1" class="card bg-info bg-opacity-75">
+                    <div class="card-body my-5">
+                        <div class="card-title display-4 text-uppercase">Player 1</div>
+                        <p id="newScore1" class="card-text display-1 text-black-50">43</p>
+                        <br><br><br><br>
+                        <div class="border border-danger fs-5 bg-danger mx-5 bg-opacity-75 border-2 rounded-3">
+                            CURRENT<br><span class="text-bold fs-3" id="currentScore1">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-1 col-2 col-sm-2 col-md-2 col-lg-2 d-flex align-items-center">
+                <div>
+                    <button id="newGame" class="btn btn-dark my-2">🔄 New game</button>
+                    <img id="dice" src="dice-5.png" alt="Playing dice" class="img-fluid py-4" />
+                    <button id="roll" class="btn btn-dark my-2">🎲 Roll dice</button>
+                    <button id="hold" class="btn btn-dark my-2">📥 Hold</button>
+                </div>
+            </div>
+            <div class="p-1 col-5 col-sm-5 col-md-5 col-lg-5">
+                <div id="p2" class="card bg-info bg-opacity-50 ">
+                    <div class="card-body my-5">
+                        <div class="card-title display-4 text-uppercase">Player 2</div>
+                        <p id="newScore2" class="card-text display-1 text-black-50">24</p>
+                        <br><br><br><br>
+                        <div class="border border-danger fs-5 bg-danger mx-5 bg-opacity-75 border-2 rounded-3">
+                            CURRENT<br><span class="text-bold fs-3" id="currentScore2">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+
+</html>

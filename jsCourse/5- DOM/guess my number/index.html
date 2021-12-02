@@ -1,0 +1,52 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess The Number</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-dark ">
+    <header>
+        <div class="container-fluid d-flex justify-content-between align-items-start">
+            <button id="again" class="btn btn-light btn-large my-3 fs-2">Again</button>
+            <h1 class="display-2 fw-bold text-light">Guess My Number
+                <div id="number" class="container bg-light p-2 fs-1 number text-center text-dark">?</div>
+            </h1>
+            <p class="fs-3 text-light">Between 1 and 20</p>
+        </div>
+        <hr class="bg-light p-1 m-0" />
+    </header>
+    <section class="">
+        <div class="container-fluid text-light my-5">
+            <div class="">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center">
+                        <div class="">
+                            <input class="guess" id="guess" type="number" />
+                            <div class="d-flex justify-content-center">
+                                <button id="check" class="btn btn-light btn-large fs-1 ">Check!</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 fs-2 fw-light d-flex justify-content-center">
+                        <div>
+                            <p id="message">🤔 Start guessing... 🤔</p>
+                            <p>💯 Score: <span id="score"></span></p>
+                            <p>🥇 HighScore: <span id="highScore"></span></p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+
+<body>
+    <section class="container">
+        <h1 class="display-5 fw-normal ps-3 pt-2">Je mets les étiquettes en ordre.</h1>
+        <div class="container1 d-flex justify-content-start">
+            <p class="draggable mx-2 fs-5 fw-bolder text-light border-light" draggable="true">jouent</p>
+            <p class="draggable mx-2 fs-5 fw-bolder text-light border-light" draggable="true">Les élèves</p>
+            <p class="draggable mx-2 fs-5 fw-bolder text-light border-light" draggable="true">la cours</p>
+            <p class="draggable mx-2 fs-5 fw-bolder text-light border-light" draggable="true">dans</p>
+        </div>
+        <div class="container1 d-flex justify-content-start">
+        </div>
+        <button id="submit" class="buttonColor btn btn-primary mt-3 fs-4 rounded-pill  border-light border-3" type="submit">Vérifier</button>
+        <section class="py-3 textColor">
+            <h1 id="result1" class="fs-3 px-5 font-monospace text-success fw-bold"></h1>
+            <h1 id="result3" class="fs-3 px-5 font-monospace text-danger fw-bold"></h1>
+            <ul id="result2" class="list-group list-group-flush fw-light border-3 rounded-3">
+            </ul>
+        </section>
+    </section>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+
+</html>
