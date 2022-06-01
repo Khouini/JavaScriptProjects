@@ -26,4 +26,36 @@ const restaurant = {
       close: 24,
     },
   },
+  order: function(starterIndex, mainIndex){
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  }
 };
+
+/////////////////////////////////////////////////////////////////Destructuring
+// const arr = [5, 7, 44, 67];
+// const [x, y, z] = arr;
+//console.log(x, y, z);
+
+/////////////////////////////////////////////////////////////////Switching
+//let [first, , secondary] = restaurant.starterMenu;
+//console.log(first, secondary);
+//[first, secondary] = [secondary, first];
+//console.log(first, secondary);
+
+
+/////////////////////////////////////////////////////////////////Receive more than one return
+// [first, secondary] = restaurant.order(0, 2);
+// console.log(first, secondary);
+
+/////////////////////////////////////////////////////////////////Destructuring inside Destructuring (nested)
+// const nested = [2, 5, [34, 77]];
+// const [ , first, secondary] = nested;
+// //console.log(first, secondary);
+// const [i, , [j, k]] = nested;
+// console.log(i, j, k);
+
+
+///////////////////////////////////////////////////////////////// Default values
+
+const [i=1, j=1, k=1] = [44, 67]
+console.log(i, j, k);
