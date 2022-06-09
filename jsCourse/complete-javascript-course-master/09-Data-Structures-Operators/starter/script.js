@@ -184,50 +184,50 @@ const rest2 = {
 // console.log(rest1, rest2);
 
 //! CHALLENGE
-const game = {
-  team1: "Bayern Munich",
-  team2: "Borrussia Dortmund",
-  players: [
-    [
-      "Neuer",
-      "Pavard",
-      "Martinez",
-      "Alaba",
-      "Davies",
-      "Kimmich",
-      "Goretzka",
-      "Coman",
-      "Muller",
-      "Gnarby",
-      "Lewandowski",
-    ],
-    [
-      "Burki",
-      "Schulz",
-      "Hummels",
-      "Akanji",
-      "Hakimi",
-      "Weigl",
-      "Witsel",
-      "Hazard",
-      "Brandt",
-      "Sancho",
-      "Gotze",
-    ],
-  ],
-  score: "4:0",
-  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
-  date: "Nov 9th, 2037",
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-  printGoals: function (...PlayersScored) {
-    console.log(PlayersScored);
-    console.log("Total of goals: ", PlayersScored.length);
-  },
-};
+// const game = {
+//   team1: "Bayern Munich",
+//   team2: "Borrussia Dortmund",
+//   players: [
+//     [
+//       "Neuer",
+//       "Pavard",
+//       "Martinez",
+//       "Alaba",
+//       "Davies",
+//       "Kimmich",
+//       "Goretzka",
+//       "Coman",
+//       "Muller",
+//       "Gnarby",
+//       "Lewandowski",
+//     ],
+//     [
+//       "Burki",
+//       "Schulz",
+//       "Hummels",
+//       "Akanji",
+//       "Hakimi",
+//       "Weigl",
+//       "Witsel",
+//       "Hazard",
+//       "Brandt",
+//       "Sancho",
+//       "Gotze",
+//     ],
+//   ],
+//   score: "4:0",
+//   scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+//   date: "Nov 9th, 2037",
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+//   printGoals: function (...PlayersScored) {
+//     console.log(PlayersScored);
+//     console.log("Total of goals: ", PlayersScored.length);
+//   },
+// };
 // console.log("Question 1");
 // const {
 //   players: [players1, players2],
@@ -289,6 +289,7 @@ const game = {
 //   console.log(day);
 // }
 /////////////////////////////////////////////////
+//* Proprety: Keys
 // const properties = Object.keys(openingHours);
 // let openStr = `We are open ${properties.length} days: `;
 // for (const day of properties) {
@@ -297,11 +298,144 @@ const game = {
 // console.log(openStr);
 
 //* Property values
-const values = Object.values(openingHours);
+// const values = Object.values(openingHours);
 
 //* Entire Object
-const entries = Object.entries(openingHours);
+// const entries = Object.entries(openingHours);
 
-for (const [date, { open, close }] of entries) {
-  console.log(`On ${date} we open at ${open} and we close at ${close}`);
-}
+// for (const [date, { open, close }] of entries) {
+//   console.log(`On ${date} we open at ${open} and we close at ${close}`);
+// }
+
+//! CHALLENGE 2
+const game = {
+  team1: "Bayern Munich",
+  team2: "Borrussia Dortmund",
+  players: [
+    [
+      "Neuer",
+      "Pavard",
+      "Martinez",
+      "Alaba",
+      "Davies",
+      "Kimmich",
+      "Goretzka",
+      "Coman",
+      "Muller",
+      "Gnarby",
+      "Lewandowski",
+    ],
+    [
+      "Burki",
+      "Schulz",
+      "Hummels",
+      "Akanji",
+      "Hakimi",
+      "Weigl",
+      "Witsel",
+      "Hazard",
+      "Brandt",
+      "Sancho",
+      "Gotze",
+    ],
+  ],
+  score: "4:0",
+  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+  date: "Nov 9th, 2037",
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+  printGoals: function (...PlayersScored) {
+    console.log(PlayersScored);
+    console.log("Total of goals: ", PlayersScored.length);
+  },
+};
+
+// console.log("Question 1");
+// for (const [i, playerName] of Object.entries(game.scored)) {
+//   console.log(`Goal ${parseInt(i) + 1}: ${playerName}`);
+// }
+
+// console.log("Question 2");
+// let average = 0;
+// for (const item of Object.values(game.odds)) {
+//   average += item;
+// }
+// average /= Object.values(game.odds).length;
+// console.log(`The average of ods is: ${average.toFixed(2)}`);
+
+// console.log("Question 3");
+// for (const [key, value] of Object.entries(game.odds)) {
+//   let typeOfWin = key == "x" ? "Draw" : "Victory";
+//   console.log(`Odd of ${typeOfWin} ${game?.[key] ?? ""}: ${value}`);
+// }
+//! BONUS IMPORTANT
+// console.log("BONUS");
+// const scorers = {};
+// let count = 0;
+// for (let i = 0; i < game.scored.length; i++) {
+//   count = 0;
+//   for (let j = 0; j < game.scored.length; j++) {
+//     if (game.scored[i] == game.scored[j]) {
+//       count += 1;
+//     }
+//     count > 1 ? (scorers[game.scored[i]] = count) : (scorers[game.scored[i]] = 1);
+//   }
+// }
+// console.log(scorers);
+
+//! 2éme méthode
+// for (const player of game.scored) {
+//   scorers[player] ? (scorers[player] += 1) : (scorers[player] = 1);
+// }
+// console.log(scorers);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//! Sets
+const ordersSet = new Set(["Yacine", "Khouini", "Yacine", "Trunks"]);
+// console.log(ordersSet.has("Yacine"));
+// ordersSet.add("Med");
+// ordersSet.add("Med");
+// ordersSet.delete("Trunks");
+// ordersSet.clear();
+// console.log(ordersSet);
+
+//* Looping
+// for (const item of ordersSet) {
+//   console.log(item);
+// }
+
+// const staff = ["Waiter", "Chef", "Manager", "Waiter", "Chef"];
+// const staffUnique = [...new Set(staff)];
+// console.log(staffUnique);
+
+//! Maps
+const rest = new Map();
+
+rest.set(1, "Sidi bouu");
+rest.set(2, "Nabeul");
+rest
+  .set("Name", "The Cliff")
+  .set(3, "Tunis")
+  .set("Categories", ["Italian", "Pizza"])
+  .set("Open", 14)
+  .set("Close", 23)
+  .set(true, "We are open :D")
+  .set(false, "We are close");
+
+// console.log(rest.get("Name"));
+// console.log(rest.get("Categories"));
+// console.log(rest.get(true));
+
+// const current_time = 21;
+// console.log(rest.get(rest.get("Open") < current_time && rest.get("Close") > current_time));
+
+// console.log(rest.has("Name"));
+// rest.delete(2);
+// console.log(rest);
+console.log(rest.size);
+rest.clear();
+console.log(rest);
