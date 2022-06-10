@@ -31,9 +31,7 @@ const restaurant = {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
   orderDelivery({ starterIndex = 1, mainIndex = 2, time, adress = "Tunis" }) {
-    console.log(
-      `order recieved! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${adress} at ${time}`
-    );
+    console.log(`order recieved! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${adress} at ${time}`);
   },
   orderPasta(ing1, ing2, ing3) {
     console.log(`There is your delicious Pasta with ${ing1}, ${ing2}, ${ing3}`);
@@ -312,32 +310,8 @@ const game = {
   team1: "Bayern Munich",
   team2: "Borrussia Dortmund",
   players: [
-    [
-      "Neuer",
-      "Pavard",
-      "Martinez",
-      "Alaba",
-      "Davies",
-      "Kimmich",
-      "Goretzka",
-      "Coman",
-      "Muller",
-      "Gnarby",
-      "Lewandowski",
-    ],
-    [
-      "Burki",
-      "Schulz",
-      "Hummels",
-      "Akanji",
-      "Hakimi",
-      "Weigl",
-      "Witsel",
-      "Hazard",
-      "Brandt",
-      "Sancho",
-      "Gotze",
-    ],
+    ["Neuer", "Pavard", "Martinez", "Alaba", "Davies", "Kimmich", "Goretzka", "Coman", "Muller", "Gnarby", "Lewandowski"],
+    ["Burki", "Schulz", "Hummels", "Akanji", "Hakimi", "Weigl", "Witsel", "Hazard", "Brandt", "Sancho", "Gotze"],
   ],
   score: "4:0",
   scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
@@ -436,6 +410,103 @@ rest
 // console.log(rest.has("Name"));
 // rest.delete(2);
 // console.log(rest);
-console.log(rest.size);
-rest.clear();
-console.log(rest);
+// console.log(rest.size);
+// rest.clear();
+// console.log(rest);
+
+//* Using arrays a keys
+// const arr = [1, 4, 55];
+// rest.set(arr, "Test");
+// console.log(rest.get(arr));
+//* Using querry selector
+// rest.set("Heading", document.querySelector("h1"));
+// console.log(rest.get("Heading"));
+
+const quiz = new Map([
+  ["Question", "What is the best programming language"],
+  [1, "C"],
+  [2, "Java"],
+  [3, "JavaScript"],
+  ["Correct", 3],
+  [true, "Correct!"],
+  [false, "False, try Again"],
+]);
+// console.log(quiz);
+
+//! Converting from object to map
+// const openingHoursMap = new Map(Object.entries(openingHours));
+//! End conversion
+// console.log(openingHours);
+// console.log(Object.entries(openingHours));
+// console.log(openingHoursMap);
+// console.log(quiz.get("Question"));
+// for (const [key, value] of quiz) {
+//   if (typeof key === "number") {
+//     console.log(`Awnser n°${key}: ${value}`);
+//   }
+// }
+// const answer = 4;
+// console.log(quiz.get(answer === quiz.get("Correct")));
+
+//! converting Map to array
+// const arra = [...quiz]; // === [...quiz.entries()]
+// console.log(arra);
+// console.log([...quiz.keys()]);
+// console.log([...quiz.values()]);
+//! End conversion
+
+//! Challenge 3
+const gameEvents = new Map([
+  [17, "⚽️ GOAL"],
+  [36, "🔁 Substitution"],
+  [47, "⚽️ GOAL"],
+  [61, "🔁 Substitution"],
+  [64, "🔶 Yellow card"],
+  [69, "🔴 Red card"],
+  [70, "🔁 Substitution"],
+  [72, "🔁 Substitution"],
+  [76, "⚽️ GOAL"],
+  [80, "⚽️ GOAL"],
+  [92, "🔶 Yellow card"],
+]);
+
+// console.log("Question 1");
+// const event = [...new Set(gameEvents.values())];
+// console.log(event);
+
+// console.log("Question 2");
+// gameEvents.delete(64);
+// console.log(gameEvents);
+
+// console.log("Question 3");
+// console.log(
+//   `An event has happened on average, every ${[...gameEvents.keys()].pop() / gameEvents.size} minutes`
+// );
+
+// console.log("Question 4");
+// let type;
+// for (const [key, value] of gameEvents) {
+//   key <= 45 ? (type = "[FIRST HALF]") : (type = "[SECOND HALF]");
+//   console.log(`${type} ${key}: ${value}`);
+// }
+
+//! Strings
+const fullName = "Med Yacine Khouini";
+console.log(fullName.indexOf("n"));
+console.log(fullName.lastIndexOf("n"));
+
+console.log(fullName.indexOf("Yacine"));
+
+console.log(fullName.slice(fullName.indexOf("Y"))); //=> Yacine Khouini
+
+console.log(fullName.slice(fullName.indexOf("Y"), fullName.lastIndexOf(" "))); //=> Yacine
+
+console.log(fullName.slice(4, -2));
+
+function checkMiddleSeat(seat) {
+  // B, E: middle setas
+  (seat.lastIndexOf("B") != -1 || seat.lastIndexOf("E")) != -1 ? console.log("There is a middle seat") : console.log("There isn't middle seat");
+}
+checkMiddleSeat("23B");
+checkMiddleSeat("23T");
+checkMiddleSeat("23E");
