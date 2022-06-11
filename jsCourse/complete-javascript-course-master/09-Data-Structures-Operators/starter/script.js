@@ -491,22 +491,145 @@ const gameEvents = new Map([
 // }
 
 //! Strings
-const fullName = "Med Yacine Khouini";
-console.log(fullName.indexOf("n"));
-console.log(fullName.lastIndexOf("n"));
+// const fullName = "Med Yacine Khouini";
+// console.log(fullName.indexOf("n"));
+// console.log(fullName.lastIndexOf("n"));
 
-console.log(fullName.indexOf("Yacine"));
+// console.log(fullName.indexOf("Yacine"));
 
-console.log(fullName.slice(fullName.indexOf("Y"))); //=> Yacine Khouini
+// console.log(fullName.slice(fullName.indexOf("Y"))); //=> Yacine Khouini
 
-console.log(fullName.slice(fullName.indexOf("Y"), fullName.lastIndexOf(" "))); //=> Yacine
+// console.log(fullName.slice(fullName.indexOf("Y"), fullName.lastIndexOf(" "))); //=> Yacine
 
-console.log(fullName.slice(4, -2));
+// console.log(fullName.slice(4, -2));
+///////////////////////////////////////////////////////////////////////////////
+// function checkMiddleSeat(seat) {
+// B, E: middle setas
+//   (seat.lastIndexOf("B") != -1 || seat.lastIndexOf("E")) != -1 ? console.log("There is a middle seat") : console.log("There isn't middle seat");
+// }
+// checkMiddleSeat("23B");
+// checkMiddleSeat("23T");
+// checkMiddleSeat("23E");
+///////////////////////////////////////////////////////////////////////////////
 
-function checkMiddleSeat(seat) {
-  // B, E: middle setas
-  (seat.lastIndexOf("B") != -1 || seat.lastIndexOf("E")) != -1 ? console.log("There is a middle seat") : console.log("There isn't middle seat");
+// function fixName(Name) {
+//   return Name[0].toUpperCase() + Name.slice(1).toLowerCase();
+// }
+// console.log(fixName("yAcINE")); //=> Yacine
+
+///////////////////////////////////////////////////////////////////////////////
+// function checkEmail(email) {
+//   const rightMail = "yacine.khouini@gmail.com";
+//   return email.toLowerCase().trim() === rightMail ? "Correct mail" : "False mail";
+// }
+// console.log(checkEmail("   Yacine.khouini@gmail.Com \n"));
+// console.log(checkEmail("Trunks"));
+///////////////////////////////////////////////////////////////////////////////////
+//* Replacing
+function euroToDollar(price) {
+  return price.replace("€", "$").replaceAll(",", ".");
 }
-checkMiddleSeat("23B");
-checkMiddleSeat("23T");
-checkMiddleSeat("23E");
+// const euroPrice = "12,3€";
+// console.log(euroToDollar(euroPrice));
+
+// const announcement = "Everyone please, go to door 1. Go to door 1!";
+// console.log(announcement.replaceAll("door", "boarding"));
+// console.log(announcement.replace(/door/g, "boarding"));
+
+// //* Boolean
+// const plane = "Airbus A320";
+// console.log(plane.includes("A320"));
+// console.log(plane.startsWith("Air"));
+// console.log(plane.endsWith("20"));
+
+// //* Exercice:
+// function checkBaggage(items) {
+//   const baggage = items.toLowerCase();
+//   return baggage.includes("knife") || baggage.includes("gun") ? "Danger" : "Jawk bahy";
+// }
+
+// console.log(checkBaggage("I have a Gun"));
+// console.log(checkBaggage("I have watter"));
+
+//* Extraction to an array
+// console.log("Med+Yacine+Khouini".split("+"));
+// console.log("Med Yacine Khouini".split(" "));
+
+const [firstName, lastName] = "MedYacine Khouini".split(" ");
+// console.log(firstName, lastName);
+
+//* Opposite of spilt = join
+// const newName = ["Mr.", firstName, lastName.toUpperCase()].join(" ");
+// console.log(newName);
+//* Application
+// function capitalizeName(name) {
+//   const names = name.toLowerCase().split(" ");
+//   let newName = [];
+//   for (const item of names) {
+//newName.push(item[0].toUpperCase() + item.slice(1));
+//     newName.push(item.replace(item[0], item[0].toUpperCase()));
+//   }
+//   return newName.join(" ");
+// }
+// console.log(capitalizeName("med yacIne khOuini"));
+
+//! Padding
+// const message = "Hello World!";
+// console.log(message.padStart(20, "*").padEnd(20 + (20 - message.length), "*"));
+
+// function maskCreditCard(numberCard) {
+//   const str = numberCard + "";
+//   const lasStr = str.slice(-4);
+//   return lasStr.padStart(str.length, "*");
+// }
+// console.log(maskCreditCard(145645334));
+// console.log(maskCreditCard("3423452323"));
+
+//! Repeat
+// function planeInLine(n) {
+//   return `There is ${n} planes in line, ${"✈️".repeat(n)}`;
+// }
+
+// console.log(planeInLine(4));
+
+//! Challenge strings
+// document.body.append(document.createElement("textarea"));
+// document.body.append(document.createElement("button"));
+//* Method 1
+// document.querySelector("button").addEventListener("click", function () {
+//   const text = document.querySelector("textarea").value.toLowerCase();
+//   let newText = [];
+//   let index;
+//   for (const [key, item] of text.split("\n").entries()) {
+//     index = item.indexOf("_");
+//     newText.push((item.slice(0, index) + item[index + 1].toUpperCase() + item.slice(index + 2)).padEnd(20, " ") + "✔️".repeat(key + 1));
+//   }
+//   console.log(newText.join("\n"));
+// });
+//* Method 2
+// document.querySelector("button").addEventListener("click", function () {
+//   const text = document.querySelector("textarea").value.toLowerCase();
+//   let newText = [];
+//   let index;
+//   for (const [key, item] of text.split("\n").entries()) {
+//     const [first, second] = item.trim().split("_");
+//     newText.push((first + second.replace(second[0], second[0].toUpperCase())).padEnd(20, " ") + "✔️".repeat(key + 1));
+//   }
+//   console.log(newText.join("\n"));
+// });
+
+//! Another challenge
+// function getCode(str) {
+//   return str.slice(0, 3).toUpperCase();
+// }
+// const fligh =
+//   "_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
+// const result_flight = [];
+// for (const item of fligh.split("+")) {
+//   const [type, from, to, time] = item.split(";");
+//   let [first_type, second_type = ""] = type.replace("_", "").split("_");
+//   let symbol = first_type === "Delayed" ? "⚠️" : "✈️";
+//   second_type === "" ? (first_type = first_type) : (first_type += " "); //espace zeyed
+//   result_flight.push((symbol + first_type + second_type + " from " + getCode(from) + " to " + getCode(to) + " (" + time.replace(":", "h") + ") ").padStart(44));
+// }
+// console.log(result_flight.join("\n"));
