@@ -63,15 +63,38 @@ const inputClosePin = document.querySelector(".form__input--pin");
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
-// LECTURES
-
-const currencies = new Map([
-  ["USD", "United States dollar"],
-  ["EUR", "Euro"],
-  ["GBP", "Pound sterling"],
-]);
-
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// PROJECT
+function displayMovments(movements) {
+  containerMovements.innerHTML = "";
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? "deposit" : "withdrawal";
+    const html = `<div class="movements__row">
+    <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
+    <div class="movements__value">${mov}</div>
+  </div>`;
+    containerMovements.insertAdjacentHTML("afterbegin", html);
+  });
+}
+displayMovments(account1.movements);
+const user = "Med Yacine Khouini";
+/*let username = "";
+for (const item of user.toLocaleLowerCase().split(" ")) {
+  username += item[0];
+  console.log(username);
+}*/
+function createsUsernames(accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLocaleLowerCase()
+      .split(" ")
+      .map(function (item) {
+        return item[0];
+      })
+      .join("");
+  });
+}
+createsUsernames(accounts);
+// console.log(accounts);
 
 /////////////////////////////////////////////////
 let arr = ["a", "b", "c", "d", "e"];
@@ -103,7 +126,119 @@ console.log([...arr, ...arr2]);*/
 
 //! The at method
 //* Getting the last element of an array
-arr = ["a", "b", "c", "d", "e"];
-console.log(arr[arr.length - 1]);
-console.log(arr.slice(-1)[0]);
-console.log(arr.at(-1));
+// arr = ["a", "b", "c", "d", "e"];
+// console.log(arr[arr.length - 1]);
+// console.log(arr.slice(-1)[0]);
+// console.log(arr.at(-1));
+
+/*const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+//* normal looping with for of
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) console.log(`Mouvment ${i + 1}: You have deposited ${movement}`);
+  else console.log(`Mouvment ${i + 1}: You withdrew ${Math.abs(movement)}`);
+}
+console.log("--------------- forEach --------------");
+//0: function(200);
+//2: function(450);
+// ...
+//! forEach method (it is a callback function)
+//* arrays
+movements.forEach(function (movement, i, arr) {
+  if (movement > 0) console.log(`Mouvment ${i + 1}: You have deposited ${movement}`);
+  else console.log(`Mouvment ${i + 1}: You withdrew ${Math.abs(movement)}`);
+});*/
+//* map
+const currencies = new Map([
+  ["USD", "United States dollar"],
+  ["EUR", "Euro"],
+  ["GBP", "Pound sterling"],
+]);
+/*
+currencies.forEach(function (value, key, map) {
+  console.log(`Item ${key}: ${value}`);
+});*/
+
+//* set
+
+// const currenciesUnique = new Set(["USD", "GBP", "EUR", "USD"]);
+// currenciesUnique.forEach(function (value, _, set) {
+//   console.log(`Item ${value}: ${value}`);
+// });
+
+//! Challenge
+// Coding Challenge #1
+
+/* 
+Julia and Kate are doing a study on dogs. So each of them asked 5 dog owners about their dog's age, 
+and stored the data into an array (one array for each). For now, they are just interested in knowing whether a 
+dog is an adult or a puppy. A dog is an adult if it is at least 3 years old, and it's a puppy if it's less than 3 years old.
+
+Create a function 'checkDogs', which accepts 2 arrays of dog's ages ('dogsJulia' and 'dogsKate'), 
+and does the following things:
+
+1. Julia found out that the owners of the FIRST and the LAST TWO dogs actually have cats, not dogs! 
+So create a shallow copy of Julia's array, and remove the cat ages from that copied array 
+(because it's a bad practice to mutate function parameters)
+2. Create an array with both Julia's (corrected) and Kate's data
+3. For each remaining dog, log to the console whether it's an adult ("Dog number 1 is an adult, and is 5 years old") 
+or a puppy ("Dog number 2 is still a puppy 🐶")
+4. Run the function for both test datasets
+
+HINT: Use tools from all lectures in this section so far 😉
+
+TEST DATA 1: Julia's data [3, 5, 2, 12, 7], Kate's data [4, 1, 15, 8, 3]
+TEST DATA 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
+
+GOOD LUCK 😀
+*/
+/*
+function checkDogs(dogsJulia, dogsKate) {
+  const newJulia = dogsJulia.slice();
+  newJulia.splice(0, 1);
+  newJulia.splice(-2, 2);
+  const correctedDogs = [...newJulia, ...dogsKate];
+  correctedDogs.forEach(function (value, i) {
+    const msg = value >= 3 ? "an adult" : "still a puppy 🐶";
+    console.log(`Dog number ${i + 1} is ${msg} and is ${value} years old`);
+  });
+}
+
+checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+*/
+//! The map method
+//*Simple map
+/*const euroToUSD = 1.1;
+const MouvmentUSD = account1.movements.map(function (mov) {
+  return mov * euroToUSD;
+});
+console.log(account1.movements);
+console.log(MouvmentUSD);
+*/
+//* Complex Map
+/*const movementsDescriptions = account1.movements.map(function (mov, i) {
+  return `Movment ${i + 1}: You ${mov > 0 ? "deposited" : "withdrew"} ${Math.abs(mov)}`;
+});
+
+console.log(movementsDescriptions);
+*/
+
+//! The filter method
+/*const deposits = account1.movements.filter(function (mov) {
+  return mov > 0;
+});
+console.log(deposits);
+const withdrawals = account1.movements.filter(function (mov) {
+  return mov < 0;
+});
+console.log(withdrawals);*/
+
+//! The reduce method
+
+const balance = account1.movements.reduce(function (acc, cur, i, arr) {
+  /*console.log(`Itération ${i}`);
+  console.log("acc:", acc);
+  console.log("cur:", cur);*/
+  return acc + cur;
+}, 0);
+
+console.log(balance);
