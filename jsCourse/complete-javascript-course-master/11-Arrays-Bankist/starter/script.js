@@ -88,7 +88,6 @@ function displayMovments(acc) {
     containerMovements.insertAdjacentHTML("afterbegin", html);
   });
 }
-// console.log(accounts);
 function displayUI(acc) {
   displayMovments(acc);
   printBalance(acc);
@@ -132,13 +131,31 @@ btnTransfer.addEventListener("click", function (e) {
   const transferToInput = inputTransferTo.value;
   const amount = parseInt(inputTransferAmount.value);
   const transferTo = accounts.find(acc => acc.username === transferToInput);
-  if (amount > 0 && transferTo && transferTo.username !== currentAccount.username && currentAccount.balance - amount > 0) {
+  if (
+    amount > 0 &&
+    transferTo &&
+    transferTo.username !== currentAccount.username &&
+    currentAccount.balance - amount > 0
+  ) {
     currentAccount.movements.push(parseInt(-amount));
     transferTo.movements.push(parseInt(amount));
     displayUI(currentAccount);
     inputTransferTo.value = inputTransferAmount.value = "";
     inputTransferTo.blur();
     inputTransferAmount.blur();
+  }
+});
+btnClose.addEventListener("click", function (e) {
+  e.preventDefault();
+  if (inputCloseUsername.value === currentAccount.username && parseInt(inputClosePin.value) === currentAccount.pin) {
+    //! The findeIndex Method
+    const index = accounts.findIndex(acc => acc.username === currentAccount.username);
+    //Delete user
+    accounts.splice(index, 1);
+    //Hide UI
+    containerApp.style.opacity = 0;
+    inputCloseUsername.value = "";
+    inputClosePin.value = "";
   }
 });
 /////////////////////////////////////////////////
@@ -313,7 +330,9 @@ TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 GOOD LUCK 😀*/
 
 const calcAverageHumanAge = dogs =>
-  dogs.map(dogAge => (dogAge <= 2 ? 2 * dogAge : 16 + dogAge * 4)).reduce((acc, curr, _, arr) => acc + curr / arr.length, 0);
+  dogs
+    .map(dogAge => (dogAge <= 2 ? 2 * dogAge : 16 + dogAge * 4))
+    .reduce((acc, curr, _, arr) => acc + curr / arr.length, 0);
 
 /*function calcAverageHumanAge(dogs) {
   let humanAge = dogs.map(dogAge => (dogAge <= 2 ? 2 * dogAge : 16 + dogAge * 4));
@@ -325,3 +344,5 @@ console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
 */
 //! The find Method
 // console.log(accounts.find(account => account.owner === "Jessica Davis"));
+//! The findeIndex Method
+//* check the close event handler
