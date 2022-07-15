@@ -3,7 +3,12 @@
   padding: 0;
   box-sizing: inherit;
 }
-
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 html {
   font-size: 62.5%;
   box-sizing: border-box;
